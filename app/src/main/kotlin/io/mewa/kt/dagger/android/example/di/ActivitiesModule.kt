@@ -17,7 +17,7 @@ abstract class ActivitiesModule {
     @ContributesAndroidInjector
     abstract fun contributeMainActivityInjector(): MainActivity
 
-    @Singleton
+    @ActivityScope
     @ContributesAndroidInjector
     abstract fun contributeOtherActivityInjector(): OtherActivity
 }
