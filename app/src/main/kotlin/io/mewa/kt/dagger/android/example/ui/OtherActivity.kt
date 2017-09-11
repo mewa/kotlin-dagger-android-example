@@ -1,10 +1,11 @@
-package io.mewa.kt.dagger.android.example
+package io.mewa.kt.dagger.android.example.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import io.mewa.kt.dagger.android.example.api.Api
 import dagger.android.AndroidInjection
+import io.mewa.kt.dagger.android.example.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 import javax.inject.Inject

@@ -1,7 +1,7 @@
 package io.mewa.kt.dagger.android.example.di
 
-import io.mewa.kt.dagger.android.example.MainActivity
-import io.mewa.kt.dagger.android.example.OtherActivity
+import io.mewa.kt.dagger.android.example.ui.MainActivity
+import io.mewa.kt.dagger.android.example.ui.OtherActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import javax.inject.Singleton
