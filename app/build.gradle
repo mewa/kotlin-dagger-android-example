@@ -1,11 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
-
-kapt {
-    generateStubs = true
-}
 
 android {
     compileSdkVersion 26
@@ -64,7 +61,4 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportLibVersion"
     //
     compile "com.android.support:support-v4:$supportLibVersion"
-}
-repositories {
-    mavenCentral()
 }
