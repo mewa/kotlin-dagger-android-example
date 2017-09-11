@@ -23,7 +23,7 @@ class OtherActivity : DaggerActivity() {
         setContentView(R.layout.activity_main)
 
         button.let {
-            it.setText("Call API")
+            it.text = "Call API"
             it.setOnClickListener {
                 api.call()
             }
