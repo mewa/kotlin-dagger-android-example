@@ -5,13 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import dagger.android.DaggerActivity
 import io.mewa.kt.dagger.android.example.R
-import io.mewa.kt.dagger.android.example.api.Api
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 
 class MainActivity : DaggerActivity() {
-
-    @Inject lateinit var api: Api
 
     init {
         Log.d("MainActivity", "instantiated")

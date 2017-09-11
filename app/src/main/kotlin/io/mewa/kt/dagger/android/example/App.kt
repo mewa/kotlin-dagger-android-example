@@ -21,5 +21,5 @@ class App : Application(), HasActivityInjector {
         DaggerAppComponent.create()
                 .inject(this)
     }
-    
+
 }
