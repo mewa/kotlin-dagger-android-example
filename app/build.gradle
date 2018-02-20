@@ -5,12 +5,12 @@ apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "io.mewa.kt.dagger.android.example"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,8 +32,8 @@ android {
 }
 
 ext {
-    daggerVersion = '2.11'
-    supportLibVersion = "26.0.2"
+    daggerVersion = '2.12'
+    supportLibVersion = "27.0.2"
 }
 
 dependencies {
