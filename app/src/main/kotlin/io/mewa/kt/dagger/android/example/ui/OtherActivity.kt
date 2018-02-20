@@ -2,13 +2,13 @@ package io.mewa.kt.dagger.android.example.ui
 
 import android.os.Bundle
 import android.util.Log
-import dagger.android.DaggerActivity
+import dagger.android.support.DaggerAppCompatActivity
 import io.mewa.kt.dagger.android.example.R
 import io.mewa.kt.dagger.android.example.api.Api
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class OtherActivity : DaggerActivity() {
+class OtherActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var api: Api
 

@@ -1,19 +1,20 @@
 package io.mewa.kt.dagger.android.example.di
 
-import io.mewa.kt.dagger.android.example.App
 import dagger.Component
-import dagger.android.AndroidInjectionModule
-import io.mewa.kt.dagger.android.example.di.ActivitiesModule
-import io.mewa.kt.dagger.android.example.di.ApiModule
+import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
+import io.mewa.kt.dagger.android.example.App
+import javax.inject.Singleton
 
-/**
- * Created by Mewa on 2017-05-15.
- */
-
+@Singleton
 @Component(modules = arrayOf(
-        AndroidInjectionModule::class,
+        AndroidSupportInjectionModule::class,
         ApiModule::class,
         ActivitiesModule::class
-)) interface AppComponent {
-    fun inject(app: App)
+))
+interface AppComponent : AndroidInjector<App> {
+
+    @Component.Builder
+    abstract class Builder : AndroidInjector.Builder<App>()
+
 }
