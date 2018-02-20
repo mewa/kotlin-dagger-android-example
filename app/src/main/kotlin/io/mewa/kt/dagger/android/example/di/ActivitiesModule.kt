@@ -7,11 +7,10 @@ import io.mewa.kt.dagger.android.example.ui.OtherActivity
 
 @Module
 abstract class ActivitiesModule {
-    @ActivityScope
+
     @ContributesAndroidInjector
     abstract fun contributeMainActivityInjector(): MainActivity
 
-    @ActivityScope
     @ContributesAndroidInjector
     abstract fun contributeOtherActivityInjector(): OtherActivity
 }
