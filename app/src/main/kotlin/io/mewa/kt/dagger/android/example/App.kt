@@ -1,30 +1,13 @@
 package io.mewa.kt.dagger.android.example
 
-import android.app.Activity
-import android.app.Application
-import io.mewa.kt.dagger.android.example.api.Api
-import io.mewa.kt.dagger.android.example.di.DaggerAppComponent
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import dagger.android.DaggerApplication
+import io.mewa.kt.dagger.android.example.di.DaggerAppComponent
 
-/**
- * Created by Mewa on 2017-05-15.
- */
+class App : DaggerApplication() {
 
-class App : Application(), HasActivityInjector {
-    @Inject lateinit var activityInjector: DispatchingAndroidInjector<Activity>
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return activityInjector
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder().create(this)
     }
 
-    @Inject lateinit var api: Api
-
-    override fun onCreate() {
-        super.onCreate()
-        DaggerAppComponent.create()
-                .inject(this)
-    }
 }

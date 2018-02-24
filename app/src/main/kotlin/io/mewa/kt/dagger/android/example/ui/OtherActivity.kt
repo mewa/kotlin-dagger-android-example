@@ -1,28 +1,29 @@
-package io.mewa.kt.dagger.android.example
+package io.mewa.kt.dagger.android.example.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import dagger.android.support.DaggerAppCompatActivity
+import io.mewa.kt.dagger.android.example.R
 import io.mewa.kt.dagger.android.example.api.Api
-import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
-
 import javax.inject.Inject
 
-class OtherActivity : AppCompatActivity() {
+class OtherActivity : DaggerAppCompatActivity() {
+
+    @Inject lateinit var api: Api
+
     init {
         Log.d("OtherActivity", "instantiated")
     }
 
-    @Inject lateinit var api: Api
-
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("OtherActivity", "onCreate")
-        AndroidInjection.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         button.let {
-            it.setText("Call API")
+            it.text = "Call API"
             it.setOnClickListener {
                 api.call()
             }
@@ -33,4 +34,5 @@ class OtherActivity : AppCompatActivity() {
         Log.d("OtherActivity", "onDestroy")
         super.onDestroy()
     }
+
 }

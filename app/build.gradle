@@ -1,22 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
-ext {
-    supportLibVersion = "25.3.1"
-}
-
-kapt {
-    generateStubs = true
-}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "io.mewa.kt.dagger.android.example"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -37,33 +31,33 @@ android {
     }
 }
 
+ext {
+    daggerVersion = '2.12'
+    supportLibVersion = "27.0.2"
+}
+
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    
+    // Google libraries
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.android.support:support-v4:$supportLibVersion"
+    compile "com.android.support:appcompat-v7:$supportLibVersion"
+
+    // -- Dagger
+    provided "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    
+    testCompile 'junit:junit:4.12'    
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    // dagger
-    provided 'com.google.dagger:dagger:2.11-rc2'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11-rc2'
-    kapt 'com.google.dagger:dagger-compiler:2.11-rc2'
-    compile 'com.google.dagger:dagger-android:2.11-rc2'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11-rc2'
-    kapt 'com.google.dagger:dagger-android-processor:2.11-rc2'
-    //
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    //
-    compile "com.android.support:design:$supportLibVersion"
-    //
-    compile "com.android.support:support-vector-drawable:$supportLibVersion"
-    //
-    compile "com.android.support:appcompat-v7:$supportLibVersion"
-    //
-    compile "com.android.support:support-v4:$supportLibVersion"
-}
-repositories {
-    mavenCentral()
+
 }

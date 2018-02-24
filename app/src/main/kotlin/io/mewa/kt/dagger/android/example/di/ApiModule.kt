@@ -1,15 +1,15 @@
 package io.mewa.kt.dagger.android.example.di
 
-import io.mewa.kt.dagger.android.example.api.Api
 import dagger.Module
 import dagger.Provides
+import io.mewa.kt.dagger.android.example.api.Api
 
-/**
- * Created by Mewa on 2017-05-15.
- */
+@Module
+class ApiModule {
 
-@Module class ApiModule {
-    @Provides fun provideApi(): Api {
+    @Provides
+    fun provideApi(): Api {
         return Api()
     }
+
 }
